@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform mainTransform;
     [SerializeField] private PlayerController mainPlayer;
     [SerializeField] private bool isMainPlayer = false;
+    [SerializeField] private BulletSpawner bulletSpawner;
+    
     
     
 
@@ -56,6 +58,15 @@ public class PlayerController : MonoBehaviour
         {
             renderer.material.color = color;
         }
+
+        if (other.CompareTag("Greenzone"))
+        {
+            bulletSpawner.spawnSpeed += bulletSpawner.spawnSpeed / 3;
+        }
+        if (other.CompareTag("Redzone"))
+        {
+            bulletSpawner.spawnSpeed -= bulletSpawner.spawnSpeed / 3;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -64,7 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             p.isActive = true;
             var position1 = players[^1].transform.position;
-            var position = new Vector3(position1.x - Random.Range(-3f, 3f), 0, position1.z - 2);
+            var position = new Vector3(position1.x - Random.Range(-1f, 1f), 0, position1.z - 0.5f);
             players.Add(p);
             collision.gameObject.transform.position = position;
         }

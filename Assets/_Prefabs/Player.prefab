@@ -105,6 +105,10 @@ MonoBehaviour:
   renderer: {fileID: 2013197865496362854}
   color: {r: 0.56078434, g: 0.30588236, b: 0.4509804, a: 0}
   mainTransform: {fileID: 0}
+  mainPlayer: {fileID: 8207860158124860570}
+  isMainPlayer: 0
+  bulletSpawner: {fileID: 8207860158041114434}
+  players: []
 --- !u!54 &8207860158124860572
 Rigidbody:
   m_ObjectHideFlags: 0

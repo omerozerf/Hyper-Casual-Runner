@@ -607,10 +607,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1285083815}
     - target: {fileID: 8207860158124860570, guid: c2803ea9c1cb6d041b6e06e7beacf8de, type: 3}
-      propertyPath: mainPlayer
-      value: 
-      objectReference: {fileID: 51696882}
-    - target: {fileID: 8207860158124860570, guid: c2803ea9c1cb6d041b6e06e7beacf8de, type: 3}
       propertyPath: mainTransform
       value: 
       objectReference: {fileID: 1096134114}
@@ -1150,6 +1146,7 @@ MonoBehaviour:
   mainTransform: {fileID: 0}
   mainPlayer: {fileID: 1096134115}
   isMainPlayer: 1
+  bulletSpawner: {fileID: 2086129211}
   players: []
 --- !u!136 &1096134116
 CapsuleCollider:
