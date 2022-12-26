@@ -108,6 +108,7 @@ MonoBehaviour:
   mainPlayer: {fileID: 8207860158124860570}
   isMainPlayer: 0
   bulletSpawner: {fileID: 8207860158041114434}
+  animator: {fileID: 8207860159588280381}
   players: []
 --- !u!54 &8207860158124860572
 Rigidbody:

@@ -16,9 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerController mainPlayer;
     [SerializeField] private bool isMainPlayer = false;
     [SerializeField] private BulletSpawner bulletSpawner;
-    
-    
-    
+
+    [SerializeField] private Animator animator;
+
+
+
 
     public List<PlayerController> players = new List<PlayerController>();
 
@@ -78,6 +80,12 @@ public class PlayerController : MonoBehaviour
             var position = new Vector3(position1.x - Random.Range(-1f, 1f), 0, position1.z - 0.5f);
             players.Add(p);
             collision.gameObject.transform.position = position;
+        }
+
+        if (collision.gameObject.TryGetComponent(out PlayerController playerController) && !playerController.isShot && isMainPlayer)
+        {
+            Destroy(players[^1].gameObject);
+            players.RemoveAt(players.Count-1);
         }
     }
 }

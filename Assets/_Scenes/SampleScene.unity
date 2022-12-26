@@ -1147,6 +1147,7 @@ MonoBehaviour:
   mainPlayer: {fileID: 1096134115}
   isMainPlayer: 1
   bulletSpawner: {fileID: 2086129211}
+  animator: {fileID: 404726084}
   players: []
 --- !u!136 &1096134116
 CapsuleCollider:
