@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour
             MoveStraight();
             MoveHorizontal();
         }
+        
+        if (isShot)
+        {
+            renderer.material.color = color;
+        }
     }
 
     private void WinAnimation()
@@ -74,11 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
         }
-
-        if (percentCounter.counter == 100)
-        {
-            renderer.material.color = color;
-        }
+        
 
         if (other.CompareTag("Greenzone"))
         {
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             p.isActive = true;
             var position1 = players[^1].transform.position;
-            var position = new Vector3(position1.x - Random.Range(-1f, 1f), 0, position1.z - 0.5f);
+            var position = new Vector3(position1.x - Random.Range(-2f, 2f), 0, position1.z - 1f);
             players.Add(p);
             collision.gameObject.transform.position = position;
             p.animator.Play("Pistol Run");

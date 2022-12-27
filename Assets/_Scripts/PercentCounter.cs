@@ -8,8 +8,25 @@ using Random = UnityEngine.Random;
 public class PercentCounter : MonoBehaviour
 {
     [SerializeField] private TMP_Text percentText;
+     private PlayerController playerController;
+    
 
     public float counter = 0;
+
+    private void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        if (counter >= 100)
+        {
+            playerController.isShot = true;
+                            
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet"))

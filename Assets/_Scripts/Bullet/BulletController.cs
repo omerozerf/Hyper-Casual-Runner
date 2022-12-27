@@ -10,6 +10,7 @@ public class BulletController : MonoBehaviour
     private void Update()
     {
         MoveStraight();
+        
     }
 
     private void MoveStraight()
@@ -23,11 +24,8 @@ public class BulletController : MonoBehaviour
         {
             gameObject.SetActive(false);
             
-            if (percentCounter.counter == 100)
-            {
-                playerController.isShot = true;
-                            
-            }
         }
     }
+    
+    
 }
