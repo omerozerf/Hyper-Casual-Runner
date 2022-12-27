@@ -19,10 +19,15 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out PlayerController playerController))
+        if (other.TryGetComponent(out PlayerController playerController) && other.TryGetComponent(out PercentCounter percentCounter))
         {
-            playerController.isShot = true;
             gameObject.SetActive(false);
+            
+            if (percentCounter.counter == 100)
+            {
+                playerController.isShot = true;
+                            
+            }
         }
     }
 }

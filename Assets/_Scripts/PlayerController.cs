@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerController mainPlayer;
     [SerializeField] private bool isMainPlayer = false;
     [SerializeField] private BulletSpawner bulletSpawner;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private PercentCounter percentCounter;
+    
+    
 
     [SerializeField] private Animator animator;
 
@@ -61,7 +65,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        if (other.CompareTag("Bullet"))
+        if (percentCounter.counter == 100)
         {
             renderer.material.color = color;
         }
@@ -86,13 +90,16 @@ public class PlayerController : MonoBehaviour
             players.Add(p);
             collision.gameObject.transform.position = position;
             p.animator.Play("Pistol Run");
+            p.canvas.gameObject.SetActive(false);
         }
 
         if (collision.gameObject.TryGetComponent(out PlayerController playerController) && !playerController.isShot && isMainPlayer)
         {
             
             playerController.animator.Play("Standing Death Left 02");
+            playerController.isActive = false;
             players[^1].animator.Play("Standing Death Left 02");
+            players[^1].isActive = false;
             Destroy(players[^1].gameObject, 2f);
             players.RemoveAt(players.Count-1);
         }
