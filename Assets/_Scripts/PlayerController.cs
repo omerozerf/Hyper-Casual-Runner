@@ -40,10 +40,20 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        WinAnimation();
         if (isActive)
         {
             MoveStraight();
             MoveHorizontal();
+        }
+    }
+
+    private void WinAnimation()
+    {
+        if (transform.position.z > 282)
+        {
+            animator.Play("Victory");
+            isActive = false;
         }
     }
 
