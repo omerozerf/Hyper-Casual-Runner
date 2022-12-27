@@ -600,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 1725897034}
     - target: {fileID: 8207860158124860568, guid: c2803ea9c1cb6d041b6e06e7beacf8de, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player (0)
       objectReference: {fileID: 0}
     - target: {fileID: 8207860158124860570, guid: c2803ea9c1cb6d041b6e06e7beacf8de, type: 3}
       propertyPath: joystick

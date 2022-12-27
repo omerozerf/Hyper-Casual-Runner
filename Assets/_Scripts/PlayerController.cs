@@ -26,7 +26,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        players.Add(mainPlayer);
+        if (isMainPlayer)
+        {
+            players.Add(mainPlayer);
+            animator.Play("Pistol Run");
+        }
+        
     }
 
     private void Update()
@@ -80,11 +85,15 @@ public class PlayerController : MonoBehaviour
             var position = new Vector3(position1.x - Random.Range(-1f, 1f), 0, position1.z - 0.5f);
             players.Add(p);
             collision.gameObject.transform.position = position;
+            p.animator.Play("Pistol Run");
         }
 
         if (collision.gameObject.TryGetComponent(out PlayerController playerController) && !playerController.isShot && isMainPlayer)
         {
-            Destroy(players[^1].gameObject);
+            
+            playerController.animator.Play("Standing Death Left 02");
+            players[^1].animator.Play("Standing Death Left 02");
+            Destroy(players[^1].gameObject, 2f);
             players.RemoveAt(players.Count-1);
         }
     }
