@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
@@ -116,4 +117,25 @@ public class PlayerController : MonoBehaviour
             players.RemoveAt(players.Count-1);
         }
     }
+
+    /*private Position CreateArmy()
+    {
+        int lineCounter = 0;
+
+        if (lineCounter == 0)
+        {
+            lineCounter++;
+            
+        }
+
+        if (lineCounter == 1)
+        {
+            lineCounter++;
+        }
+
+        if (lineCounter == 3)
+        {
+            lineCounter++;
+        }
+    }*/
 }
