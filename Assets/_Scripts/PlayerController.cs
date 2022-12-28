@@ -75,10 +75,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Greenzone") || other.CompareTag("Redzone"))
+        /*if (other.CompareTag("Greenzone") || other.CompareTag("Redzone"))
         {
             other.gameObject.SetActive(false);
         }
+        */
         
 
         if (other.CompareTag("Greenzone"))
