@@ -36,4 +36,15 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void WinScreen()
+    {
+        // z 280 geçince
+        
+    }
+
+    public void LoseScreen()
+    {
+        
+    }
+
 }
