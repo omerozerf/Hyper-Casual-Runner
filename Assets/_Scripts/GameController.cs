@@ -6,29 +6,22 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    private bool isPause = false;
+    [SerializeField] private bool isPause = false;
     
-    private void Update()
+    public void TimeControl()
     {
-        PauseGame();
-        ResumeGame();
-    }
-
-    private void PauseGame()
-    {
-        if (Input.GetKeyDown(KeyCode.P) && isPause)
+        if (!isPause)
         {
+            Debug.Log("dur");
             Time.timeScale = 0;
             isPause = true;
         }
-    }
-
-    private void ResumeGame()
-    {
-        if (Input.GetKeyDown(KeyCode.P) && !isPause)
+        else if (isPause)
         {
+            Debug.Log("durma");
             Time.timeScale = 1;
             isPause = false;
         }
     }
+
 }
