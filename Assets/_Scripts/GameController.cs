@@ -12,13 +12,11 @@ public class GameController : MonoBehaviour
     {
         if (!isPause)
         {
-            Debug.Log("dur");
             Time.timeScale = 0;
             isPause = true;
         }
         else if (isPause)
         {
-            Debug.Log("durma");
             Time.timeScale = 1;
             isPause = false;
         }
