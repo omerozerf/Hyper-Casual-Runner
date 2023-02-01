@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -28,9 +29,10 @@ public class PlayerController : MonoBehaviour
 
 
     public List<PlayerController> players = new List<PlayerController>();
-
+    
     private void Start()
     {
+        
         if (isMainPlayer)
         {
             players.Add(mainPlayer);
