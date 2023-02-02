@@ -3,17 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 
     [SerializeField] private bool isPause = false;
     [SerializeField] private Canvas startScreen;
+    [SerializeField] private Canvas loseScreen;
+    [SerializeField] private PlayerController playerController;
     
+    
+
+
 
     private void Start()
     {
         Time.timeScale = 0;
+    }
+
+    private void Update()
+    {
+        LoseScreen();
     }
 
     public void StartButton()
@@ -35,16 +46,21 @@ public class GameController : MonoBehaviour
             isPause = false;
         }
     }
-
-    public void WinScreen()
+    
+    private void LoseScreen()
     {
-        // z 280 geçince
+        int lenght = playerController.players.Count;
         
+        if (lenght == 0)
+        {
+            loseScreen.gameObject.SetActive(true);
+        }
     }
 
-    public void LoseScreen()
+
+    public void RestartGame()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

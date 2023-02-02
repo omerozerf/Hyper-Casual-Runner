@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BulletSpawner bulletSpawner;
     [SerializeField] private Canvas canvas;
     [SerializeField] private PercentCounter percentCounter;
+    [SerializeField] private Canvas winScreen;
+    
     
     
 
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
         WinAnimation();
         if (isActive)
         {
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             renderer.material.color = color;
         }
+        
     }
 
     private void WinAnimation()
@@ -62,8 +66,10 @@ public class PlayerController : MonoBehaviour
         {
             animator.Play("Victory");
             isActive = false;
+            winScreen.gameObject.SetActive(true);
         }
     }
+    
 
     private void MoveHorizontal()
     {
@@ -106,6 +112,9 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.transform.position = position;
             p.animator.Play("Pistol Run");
             p.canvas.gameObject.SetActive(false);
+            p.isMainPlayer = true;
+            Debug.Log("aktifleşti");
+            Debug.Log(p, p);
         }
 
         if (collision.gameObject.TryGetComponent(out PlayerController playerController) && !playerController.isShot && isMainPlayer)
@@ -117,6 +126,8 @@ public class PlayerController : MonoBehaviour
             players[^1].isActive = false;
             Destroy(players[^1].gameObject, 2f);
             players.RemoveAt(players.Count-1);
+            Debug.Log("öldü");
+            Debug.Log(playerController, playerController);
         }
     }
 
