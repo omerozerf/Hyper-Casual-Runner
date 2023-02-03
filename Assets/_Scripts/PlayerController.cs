@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(p, p);
         }
 
-        if (collision.gameObject.TryGetComponent(out PlayerController playerController) && !playerController.isShot && isMainPlayer)
+        if (collision.gameObject.TryGetComponent(out PlayerController playerController) && !playerController.isShot)
         {
             
             playerController.animator.Play("Standing Death Left 02");
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
             players.RemoveAt(players.Count-1);
             Debug.Log("öldü");
             Debug.Log(playerController, playerController);
-            
+
             foreach (var variable in players)
             {
                 variable.animator.Play("Standing Death Left 02");
