@@ -348,6 +348,8 @@ MonoBehaviour:
   bulletSpawner: {fileID: 8207860158041114434}
   canvas: {fileID: 6020043896648861298}
   percentCounter: {fileID: -8677315408734530223}
+  winScreen: {fileID: 0}
+  spawner: {fileID: 8207860158041114432}
   animator: {fileID: 8207860159588280381}
   players: []
 --- !u!54 &8207860158124860572

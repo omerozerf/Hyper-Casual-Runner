@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private PercentCounter percentCounter;
     [SerializeField] private Canvas winScreen;
+    [SerializeField] private GameObject spawner;
+    
     
     
     
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
             animator.Play("Victory");
             isActive = false;
             winScreen.gameObject.SetActive(true);
+            Destroy(spawner);
         }
     }
     
