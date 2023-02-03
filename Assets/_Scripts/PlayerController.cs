@@ -70,10 +70,15 @@ public class PlayerController : MonoBehaviour
             isActive = false;
             winScreen.gameObject.SetActive(true);
             Destroy(spawner);
+
+            foreach (var VARIABLE in players)
+            {
+                Destroy(VARIABLE.spawner);
+            }
         }
     }
     
-
+    
     private void MoveHorizontal()
     {
         var joystickInput = joystick.Horizontal;
@@ -131,6 +136,14 @@ public class PlayerController : MonoBehaviour
             players.RemoveAt(players.Count-1);
             Debug.Log("öldü");
             Debug.Log(playerController, playerController);
+            
+            foreach (var variable in players)
+            {
+                variable.animator.Play("Standing Death Left 02");
+                variable.isActive = false;
+                Destroy(variable.gameObject, 2f);
+                
+            }
         }
     }
 
