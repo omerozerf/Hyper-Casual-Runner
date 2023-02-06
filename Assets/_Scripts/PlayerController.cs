@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Canvas winScreen;
     [SerializeField] private GameObject spawner;
     
-    
+     
     
     
 
