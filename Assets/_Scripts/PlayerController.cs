@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public List<PlayerController> players = new List<PlayerController>();
+    public static List<PlayerController> players = new List<PlayerController>();
     
     private void Start()
     {
