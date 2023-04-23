@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     
     private void LoseScreen()
     {
-        int lenght = playerController.players.Count;
+        int lenght = PlayerController.players.Count;
         
         if (lenght == 0)
         {

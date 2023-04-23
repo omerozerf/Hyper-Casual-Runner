@@ -81,8 +81,8 @@ public class PlayerController : MonoBehaviour
     
     private void MoveHorizontal()
     {
-        var joystickInput = joystick.Horizontal;
-        transform.Translate(Vector3.right * (joystickInput * moveSpeed * Time.deltaTime));
+        var horizontalDirection = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * (horizontalDirection * moveSpeed * Time.deltaTime));
     }
 
     private void MoveStraight()
