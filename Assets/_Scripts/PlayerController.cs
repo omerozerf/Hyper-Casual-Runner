@@ -22,16 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PercentCounter percentCounter;
     [SerializeField] private Canvas winScreen;
     [SerializeField] private GameObject spawner;
-    
-     
-    
-    
-
     [SerializeField] private Animator animator;
-
-
-
-
+    
     public static List<PlayerController> players = new List<PlayerController>();
     
     private void Start()
@@ -81,8 +73,13 @@ public class PlayerController : MonoBehaviour
     
     private void MoveHorizontal()
     {
-        var horizontalDirection = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * (horizontalDirection * moveSpeed * Time.deltaTime));
+        
+        // var horizontalDirection = Input.GetAxis("Horizontal");
+
+        var horizontalInput = joystick.Horizontal;
+        var verticalInput = joystick.Vertical;
+        
+        transform.Translate(Vector3.right * (horizontalInput * moveSpeed * Time.deltaTime));
     }
 
     private void MoveStraight()
@@ -115,12 +112,12 @@ public class PlayerController : MonoBehaviour
         {
             p.isActive = true;
             var position1 = players[^1].transform.position;
-            var position = new Vector3(position1.x - Random.Range(-2f, 2f), 0, position1.z - 1f);
+            var position = new Vector3(position1.x - Random.Range(-3f, 3f), 0, position1.z - 1f);
             players.Add(p);
             collision.gameObject.transform.position = position;
             p.animator.Play("Pistol Run");
             p.canvas.gameObject.SetActive(false);
-            p.isMainPlayer = true;
+            // p.isMainPlayer = true;
             Debug.Log("aktifleşti");
             Debug.Log(p, p);
         }
